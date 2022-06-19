@@ -1,8 +1,22 @@
 import React from 'react';
+import { InfinitePeople } from './people/InfinitePeople';
+import { InfiniteSpecies } from './species/InfiniteSpecies';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 import './App.css';
 
 function App() {
-	return <div className='App'></div>;
+	const queryClient = new QueryClient();
+	return (
+		<QueryClientProvider client={queryClient}>
+			<div className='App'>
+				<h1>Infinite SWAPI</h1>
+				<InfinitePeople />
+				{/* <InfiniteSpecies /> */}
+			</div>
+			<ReactQueryDevtools />
+		</QueryClientProvider>
+	);
 }
 
 export default App;
